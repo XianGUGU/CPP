@@ -1,0 +1,36 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+int fun(int array[3][3])
+{
+	int i,j,t;
+	for(i=0;i<3;i++)
+		for(j=0;j<i;j++)
+		{
+			t=array[i][j];
+			array[i][j]=array[j][i];
+			array[j][i]=t;
+		}
+		return 0;
+}
+int main()
+{
+	int i,j;
+	int array[3][3]={{9,8,7},{6,5,4},{3,2,1}};
+	cout << "Converted Front" <<endl;
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+			cout << setw(7) << array[i][j] ;
+		cout<< endl;
+	}
+	fun(array);
+	cout << "Converted result" <<endl;
+	for(i=0;i<3;i++)
+	{
+		for(j=0;j<3;j++)
+			cout << setw(7) << array[i][j] ;
+		cout<< endl;
+	}
+    return 0;
+}
